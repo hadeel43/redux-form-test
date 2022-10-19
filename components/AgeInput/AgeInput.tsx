@@ -1,44 +1,44 @@
-import React, {
-    Component
-} from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import React, { useState } from 'react';
 
-export default class AgeInput extends Component {
-    constructor(props) {
-      super(props)
-
-      this.state={
-        age: props.values.age
-      }
-    }
-
-    render() {
-      const{
-        submitAndContinue,
-        errors
-      } = this.props
-
-      return ( 
-        <form>
-          <input 
-            type="text"
-            placeholder="Enter your age" 
-            value={this.state.age} 
-            onChange={e => this.setState({ age:e.target.value})}
-          />
-
-          <span className="error">{errors.age}</span>
-
-          <button 
-            className="submit-button" 
-            value="submit" 
-            onClick={e => {
-              e.preventDefault()
-              submitAndContinue(this.state)
-            }}
-          >
-            send
-          </button>
-        </form>
-      );
-    }
+interface Props {
+  submitAndContinue: (input: string) => void;
+  errors: any;
 }
+
+const AgeInput: React.FC<Props> = ({ submitAndContinue, errors }) => {
+  const [values, seValues] = useState({ name: '', age: '' });
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    let updatedValue = {};
+    updatedValue = { age: e.currentTarget.value };
+    seValues((newValue) => ({
+      ...newValue,
+      ...updatedValue,
+    }));
+  };
+
+  return (
+    <form>
+      <input
+        type="text"
+        placeholder="Enter your age"
+        value={values.age}
+        onChange={(e) => handleChange(e)}
+      />
+      <span className="error">{errors.name}</span>
+      <button
+        className="submit-button"
+        value="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          submitAndContinue(values.age);
+        }}
+      >
+        send
+      </button>
+    </form>
+  );
+};
+
+export default AgeInput;

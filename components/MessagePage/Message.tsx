@@ -1,14 +1,15 @@
-import React, {
-    Component
-} from 'react';
+import React from 'react';
 
-export default class Message extends Component{
-    render(){
-        const {values}=this.props
-        return(
-            <div className="message">
-             <p>Hi {values.name}, you are {values.age} years old.</p>
-            </div>
-        );
-    }
+interface Props {
+  values: { name: string; age: string };
 }
+
+const Message: React.FC<Props> = ({ values }) => (
+  <div className="message">
+    <p>
+      Hi {values.name}, you are {values.age} years old.
+    </p>
+  </div>
+);
+
+export default Message;

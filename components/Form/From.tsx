@@ -1,35 +1,29 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from 'react';
-import AgeInput from '../../components/AgeInput';
-import NameInput from '../../components/NameInput';
-import Message from '../../components/MessagePage';
+import AgeInput from '../AgeInput/AgeInput';
+import NameInput from '../NameInput/NameInput';
+import Message from '../MessagePage/Message';
 
 interface Props {
   page: any;
-  submitAndContinue: any;
+  submitAndContinue: (input: string) => void;
   errors: any;
   values: any;
 }
 
-const Container: React.FC<Props> = ({ page, submitAndContinue, errors, values }) => (
+const Form: React.FC<Props> = ({ page, submitAndContinue, errors, values }) => (
   <div className="form">
     {page.currentPage === 1 && (
-      <AgeInput
-        submitAndContinue={(input) => submitAndContinue(input)}
-        page={page}
-        errors={errors}
-        values={values}
-      />
+      <AgeInput submitAndContinue={(input: string) => submitAndContinue(input)} errors={errors} />
     )}
     {page.currentPage === 2 && (
-      <NameInput
-        submitAndContinue={(input) => submitAndContinue(input)}
-        page={page}
-        errors={errors}
-        values={values}
-      />
+      <NameInput submitAndContinue={(input: string) => submitAndContinue(input)} errors={errors} />
     )}
-    {page.currentPage === 3 && <Message page={page} values={values} />}
+    {page.currentPage === 3 && <Message values={values} />}
   </div>
 );
 
-export default Container;
+export default Form;

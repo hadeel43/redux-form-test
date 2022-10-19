@@ -1,35 +1,45 @@
-import React, { Component } from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import React, { useState } from 'react';
 
-export default class NameInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: props.values.name,
-    };
-  }
-  render() {
-    const { submitAndContinue, errors } = this.props;
-
-    return (
-      <form>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={this.state.name}
-          onChange={(e) => this.setState({ name: e.target.value })}
-        />
-        <span className="error">{errors.name}</span>
-        <button
-          className="submit-button"
-          value="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            submitAndContinue(this.state);
-          }}
-        >
-          send
-        </button>
-      </form>
-    );
-  }
+interface Props {
+  submitAndContinue: (input: string) => void;
+  errors: any;
 }
+
+const NameInput: React.FC<Props> = ({ submitAndContinue, errors }) => {
+  const [values, seValues] = useState({ name: '', age: '' });
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    let updatedValue = {};
+    updatedValue = { name: e.currentTarget.value };
+    seValues((newValue) => ({
+      ...newValue,
+      ...updatedValue,
+    }));
+  };
+
+  return (
+    <form>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={values.name}
+        onChange={(e) => handleChange(e)}
+      />
+      <span className="error">{errors.name}</span>
+      <button
+        className="submit-button"
+        value="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          submitAndContinue(values.name);
+        }}
+      >
+        send
+      </button>
+    </form>
+  );
+};
+
+export default NameInput;
