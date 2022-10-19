@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useState } from 'react';
 
 interface Props {
   submitAndContinue: (input: string) => void;
-  errors: any;
+  errors: { name: string };
 }
 
 const NameInput: React.FC<Props> = ({ submitAndContinue, errors }) => {

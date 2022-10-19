@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import React, { useState } from 'react';
 
 interface Props {
   submitAndContinue: (input: string) => void;
-  errors: any;
+  errors: { name: string };
 }
 
 const AgeInput: React.FC<Props> = ({ submitAndContinue, errors }) => {
