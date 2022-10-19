@@ -7,7 +7,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => (
   <div>
-    <Container grid className="pt-28">
+    <Container>
       <div className="col-start-3 col-end-13">{children}</div>
     </Container>
   </div>
