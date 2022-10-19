@@ -4,7 +4,20 @@ import type { NextPage } from 'next';
 
 const Home: NextPage = () => (
   <Layout>
-    <Form />
+    <Form
+      page={{
+        currentPage: 0,
+      }}
+      submitAndContinue={(input) => console.log(input)}
+      errors={{
+        name: '',
+        age: '',
+      }}
+      values={{
+        name: '',
+        age: '',
+      }}
+    />
   </Layout>
 );
 
