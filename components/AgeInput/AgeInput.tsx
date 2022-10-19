@@ -13,7 +13,7 @@ const AgeInput: React.FC<Props> = ({ submitAndContinue, errors }) => {
     updatedValue = { age: e.currentTarget.value };
     seValues((newValue) => ({
       ...newValue,
-      ...updatedValue,
+      updatedValue,
     }));
   };
 

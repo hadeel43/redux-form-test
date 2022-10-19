@@ -10,7 +10,7 @@ import thunkMiddleware from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 
 // Import Combined Reducers "rootReducer"
-import rootReducer from "../reducers/index"
+import rootReducer from "./reducers/index"
 
 // Add Middleware
 const middlewares = [
