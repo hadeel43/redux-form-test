@@ -2,6 +2,7 @@
 /coverage
 /dist
 /public
+/redux
 /node_modules
 .eslintrc.js
 .postcss.config.js
