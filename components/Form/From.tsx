@@ -1,17 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from 'react';
 import AgeInput from '../AgeInput/AgeInput';
 import NameInput from '../NameInput/NameInput';
 import Message from '../MessagePage/Message';
 
 interface Props {
-  page: any;
+  page: { currentPage: number };
   submitAndContinue: (input: string) => void;
-  errors: any;
-  values: any;
+  errors: { name: string };
+  values: { name: string; age: string };
 }
 
 const Form: React.FC<Props> = ({ page, submitAndContinue, errors, values }) => (
