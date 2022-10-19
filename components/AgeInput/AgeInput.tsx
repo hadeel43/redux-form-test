@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 interface Props {
   submitAndContinue: (input: string) => void;
-  errors: { name: string };
+  errors: { name: string; age: string };
 }
 
 const AgeInput: React.FC<Props> = ({ submitAndContinue, errors }) => {

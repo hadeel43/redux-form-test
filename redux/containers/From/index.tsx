@@ -6,10 +6,10 @@ import {
     nextPage
 }from '../../actions/FormActions'
 
-import Form from '../../pages/Form'
+import { Form } from '../../../components/Form'
 
-const handleValidation = (dispatch, fields) => {
-  let errors = {};
+const handleValidation = (dispatch:any, fields:any) => {
+  let errors = {name:'' ,age: '' };
   let formIsValid = true;
 
   if (
@@ -32,14 +32,14 @@ const handleValidation = (dispatch, fields) => {
   return formIsValid;
 }
 
-const submitAndContinue = (dispatch,values) => {
+const submitAndContinue = (dispatch:any,values:any) => {
     dispatch(saveInputValue(values))
 
     if (handleValidation(dispatch, values)) {
       dispatch(nextPage('next'))
     }
   }
-  const mapStateToProps = (state, ownProps = {}) => {
+  const mapStateToProps = (state:any, ownProps = {}) => {
     console.log(state.form)
 
     return {
@@ -48,9 +48,9 @@ const submitAndContinue = (dispatch,values) => {
   }
   
 
-  const mapDispatchToProps = (dispatch, ownProps = {}) => ({
-    submitAndContinue: values => submitAndContinue(dispatch, values),
-    handleValidation: fields => handleValidation(dispatch, fields)
+  const mapDispatchToProps = (dispatch:any, ownProps = {}) => ({
+    submitAndContinue: (values:any) => submitAndContinue(dispatch, values),
+    handleValidation: (fields:any) => handleValidation(dispatch, fields)
   })
   
 export default connect(

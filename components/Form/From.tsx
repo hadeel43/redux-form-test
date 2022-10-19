@@ -6,7 +6,7 @@ import Message from '../MessagePage/Message';
 interface Props {
   page: { currentPage: number };
   submitAndContinue: (input: string) => void;
-  errors: { name: string };
+  errors: { name: string; age: string };
   values: { name: string; age: string };
 }
 
