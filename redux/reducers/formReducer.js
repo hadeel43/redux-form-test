@@ -19,7 +19,7 @@ const initialState = {
     errors:{}
   }
 export default function reducer(state = initialState, action){
-    console.log(state)
+ 
     
     switch(action.type){
         case SAVE_INPUT_VALUE:
