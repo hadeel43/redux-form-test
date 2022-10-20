@@ -18,7 +18,7 @@ const initialState = {
     },
     errors:{}
   }
-export default function reducer(state = initialState, action){
+export default function reducer(state = initialState, action:any){
     console.log(state)
     
     switch(action.type){

@@ -39,7 +39,7 @@ const submitAndContinue = (dispatch:any,values:any) => {
       dispatch(nextPage('next'))
     }
   }
-  const mapStateToProps = (state:any, ownProps = {}) => {
+  const mapStateToProps = (state:any) => {
     console.log(state.form)
 
     return {
@@ -48,7 +48,7 @@ const submitAndContinue = (dispatch:any,values:any) => {
   }
   
 
-  const mapDispatchToProps = (dispatch:any, ownProps = {}) => ({
+  const mapDispatchToProps = (dispatch:any) => ({
     submitAndContinue: (values:any) => submitAndContinue(dispatch, values),
     handleValidation: (fields:any) => handleValidation(dispatch, fields)
   })
