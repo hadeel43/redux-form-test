@@ -40,7 +40,7 @@ const submitAndContinue = (dispatch:any,values:any) => {
     }
   }
   const mapStateToProps = (state:any, ownProps = {}) => {
-    console.log(state.form)
+
 
     return {
       ...state.form
